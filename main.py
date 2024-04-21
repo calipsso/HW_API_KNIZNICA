@@ -35,7 +35,7 @@ def srch_book(id):
 
 @app.route("/knihy/update/<int:id>", methods=["PUT"])
 def updt_book(id):
-    #print(request)
+    print(request)
     data = request.json
     for book in books:
         if book["id"] == id:
