@@ -36,12 +36,11 @@ def srch_book(id):
 @app.route("/knihy/update/<int:id>", methods=["PUT"])
 def updt_book(id):
     #print(request)
+    data = request.json
     for book in books:
         if book["id"] == id:
-            if "nazov" in books:
-                book["nazov"] = books["nazov"]
-            if 'author' in books:
-                book["autor"] = books["autor"]
+            book['title'] = data['title']
+            book['author'] = data['author']
             return jsonify({"message": "Kniha bola úspešne aktualizovaná"}), 200
     return jsonify({"error": "Kniha s daným ID nebola nájdená"}), 404
 
